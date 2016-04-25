@@ -1,0 +1,12 @@
+div{
+    padding: 6px;
+}
+div.container {
+    border: 1px solid black;
+}
+div.my-info {
+    border: 1px solid blue;
+}
+div.my-directive{
+    border: 1px solid green;
+}
