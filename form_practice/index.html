@@ -1,0 +1,52 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.0/angular.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="foundation-6.2.1-custom/css/foundation.min.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="foundation-6.2.1-custom/css/app.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+      <form class="" name="signup_form" method="post" novalidate ng-submit="signupForm()">
+      <fieldset>
+        <div class="row">
+          <div class="large-12 columns">
+              <label>Your name</label>
+              <input type="text"
+                  placeholder="Name"
+                  name="name"
+                  ng-model="signup.name"
+                  ng-minlength="3"
+                  ng-maxlength="20" required />
+              <div class="error" ng-show="signup_form.name.$dirty && signup_form.name.$invalid">
+                  <small class="error"
+                    ng-show="signup_form.name.$error.required">
+                    Your name is required.
+                  </small>
+                  <small class="error"
+                    ng-show="signup_form.name.$error.minlength">
+                    Your name is required to be at least 3 charactors
+                  </small>
+                  <small class="error"
+                    ng-show="signup_form.name.$error.maxlength">
+                     Your name cannot be longer than 20 characters
+                  </small>
+
+              </div>
+          </div>
+        </div>
+
+          <legend>Signup</legend>
+          <div id="btn">
+            <button type="submit" class="button radius" name="button">Submit</button>
+          </div>
+        </fieldset>
+
+      </form>
+
+
+
+  </body>
+</html>
