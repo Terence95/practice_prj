@@ -9,7 +9,7 @@ app.controller('FirstController', function ($scope){
 
   // ----------------------------- 我是分割线
   $scope.message = 'World';
-  $scope.counter = '0';
+  $scope.counter = 0;
   $scope.add = function(amount){
     $scope.counter += amount;
   }
