@@ -1,0 +1,24 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.0/angular.js"></script>
+    <script src="script.js"></script>
+  </head>
+  <body>
+      <div ng-controller="myController">
+        <input type="text" name="name" value="" ng-model = "expr" placeholder="Enter an experssion">
+        <h2>{{parseValue}}</h2>
+      </div>
+
+      <div class="" ng-controller="secController">
+        <input type="email" name="name" value="" ng-model="to" placeholder="Recipient">
+        <textarea name="name" rows="8" cols="40" ng-model="emailBody"></textarea>
+        <pre>
+          {{previewText}}
+        </pre>
+      </div>
+
+  </body>
+</html>
