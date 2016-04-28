@@ -2,7 +2,7 @@ var app = angular.module("myApp", []);
 app.directive('ensureUnique', function($http) {
     return {
         require: 'ngModel',
-        link: function(scop, attrs, c) {
+        link: function(scope, attrs, c) {
             scope.$watch(attrs.ngModel, function(n) {
                 if (!n) {
                     return;
@@ -20,6 +20,17 @@ app.directive('ensureUnique', function($http) {
                     c.$setValidity('unique', false);
                 });
             });
+        }
+    };
+});
+
+app.controller('signupController', function($scope) {
+    $scope.submitted = false;
+    $scope.signupForm = function() {
+        if ($scope.signup_form.$valid) {
+            // 正常提交
+        } else {
+            $scope.signup_form.submitted = true;
         }
     };
 });

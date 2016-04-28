@@ -12,13 +12,13 @@
 </head>
 
 <body>
-    <form class="" name="signup_form" method="post" novalidate ng-submit="signupForm()">
+    <form class="" name="signup_form" method="post" novalidate ng-submit="signupForm()" ng-controller="signupController">
         <fieldset>
             <div class="row">
                 <div class="large-12 columns">
                     <label>Your name</label>
                     <input type="text" placeholder="Name" name="name" ng-model="signup.name" ng-minlength="3" ng-maxlength="20" required />
-                    <div class="error" ng-show="signup_form.name.$dirty && signup_form.name.$invalid">
+                    <div class="error" ng-show="signup_form.name.$dirty && signup_form.name.$invalid && signup_form.submitted">
                         <small class="error" ng-show="signup_form.name.$error.required">
                     Your name is required.
                   </small>
@@ -38,7 +38,7 @@
                     <input type="email" name="email" placeholder="Email" ng-model="signup.email" ng-minlength="3" ng-maxlength="100" required/>
                 </div>
 
-                <div class="error" ng-show="signup_form.email.$dirty && signup_form.email.$invalid">
+                <div class="error" ng-show="signup_form.email.$dirty && signup_form.email.$invalid && signup_form.submitted">
                     <small class="error" ng-show="signup_form.email.$error.required">
                  Your Email is required.
             </small>
@@ -57,30 +57,30 @@
 
                 </div>
             </div>
-
-            <div class="large-12 columns">
-                <label>Username</label>
-                <input type="text" placeholder="Desired username" name="username" ng-model="signup.username" ng-minlength="3" ng-maxlength="20" ensure-unique="username" required />
-                <div class="error" ng-show="signup_form.username.$dirty &&
-                 signup_form.username.$invalid">
-                    <small class="error" ng-show="signup_form.username.$error.required">
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Username</label>
+                    <input type="text" placeholder="Desired username" name="username" ng-model="signup.username" ng-minlength="3" ng-maxlength="20" ensure-unique="username" required />
+                    <div class="error" ng-show="signup_form.username.$dirty &&
+                 signup_form.username.$invalid&& signup_form.submitted">
+                        <small class="error" ng-show="signup_form.username.$error.required">
                  Please input a username
              </small>
-                    <small class="error" ng-show="signup_form.username.$error.minlength">
+                        <small class="error" ng-show="signup_form.username.$error.minlength">
 ￼                 Your username is required to be at least 3 characters
              </small>
-                    <small class="error" ng-show="signup_form.username.$error.maxlength">
+                        <small class="error" ng-show="signup_form.username.$error.maxlength">
                  Your username cannot be longer than 20 characters
              </small>
-                    <small class="error" ng-show="signup_form.username.$error.unique">
+                        <small class="error" ng-show="signup_form.username.$error.unique">
                  That username is taken, please try another
              </small>
+                    </div>
                 </div>
             </div>
-
             <legend>Signup</legend>
             <div id="btn">
-                <button type="submit" ng-disabled="signup_form.$invalid" class="button radius" name="button">Submit</button>
+                <button type="submit" class="button radius" name="button">Submit</button>
             </div>
         </fieldset>
     </form>

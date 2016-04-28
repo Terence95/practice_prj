@@ -6,14 +6,14 @@ html {
     background: #fff;
 }
 .row {
-    border: 0px solid green;
+    border: 0px solid lightgreen;
 }
 input.ng-invalid {
     border: 1px solid red;
 }
 input.ng-valid {
-    border: 1px solid green;
+    border: 1px solid lightgreen;
 }
 #btn {
-    margin-left: 100px;
+    margin-left: 190px;
 }
