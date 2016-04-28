@@ -75,36 +75,36 @@
         </div>
 
         <div class="large-12 columns">
-          <label>Username</label>
-          <input type="text"
-                 name="username"
-                 ng-model="signup_.username"
-                 ng-minlength="3"
-                 ng-maxlength="20"
-                 ensure-unique="username" required/>
-          <div class="error"
-               ng-show="signup_form.username.$dirty&&sign_form.username.$invalid">
-            <small class="error"
-                   ng-show="signup_form.username.$error.required">
-                   Please input a username.
-            </small>
+    <label>Username</label>
+    <input type="text"
+        placeholder="Desired username"
+        name="username"
+        ng-model="signup.username"
+        ng-minlength="3"
+        ng-maxlength="20"
+        ensure-unique="username" required />
+    <div class="error"
+        ng-show="signup_form.username.$dirty &&
+                 signup_form.username.$invalid">
+        <small class="error"
+            ng-show="signup_form.username.$error.required">
+            Please input a username
+        </small>
+        <small class="error"
+            ng-show="signup_form.username.$error.minlength">
+￼                 Your username is required to be at least 3 characters
+             </small>
+             <small class="error"
+                 ng-show="signup_form.username.$error.maxlength">
+                 Your username cannot be longer than 20 characters
+             </small>
+             <small class="error"
+                 ng-show="signup_form.username.$error.unique">
+                 That username is taken, please try another
+             </small>
+         </div>
+     </div>
 
-            <small class="error"
-                   ng-show="signup_form.username.$error.minlength">
-                   Your username is required to be at least 3 characters
-            </small>
-
-            <small class="error"
-                   ng-show="signup_form.username.$error.maxlength">
-                  Your username can not be longer than 20 characters
-            </small>
-
-            <small class="error"
-                   ng-show="signup_form.username.$error.unique">
-                   That username is taken, please try another.
-            </small>
-          </div>
-        </div>
           <legend>Signup</legend>
           <div id="btn">
             <button type="submit" class="button radius" name="button">Submit</button>
