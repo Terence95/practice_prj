@@ -9,6 +9,7 @@
     <script src="script.js"></script>
     <link rel="stylesheet" href="foundation-6.2.1-custom/css/foundation.min.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="foundation-6.2.1-custom/css/app.css" media="screen" title="no title" charset="utf-8">
+    <script src="bower_components/angular-messages/angular-messages.js" charset="utf-8"></script>
 </head>
 
 <body>
@@ -17,19 +18,20 @@
             <div class="row">
                 <div class="large-12 columns">
                     <label>Your name</label>
-                    <input type="text" placeholder="Name" name="name" ng-model="signup.name" ng-minlength="3" ng-maxlength="20" required />
-                    <div class="error" ng-show="signup_form.name.$dirty && signup_form.name.$invalid && signup_form.submitted && !signup_form.name.$focused"/>
-                        <small class="error" ng-show="signup_form.name.$error.required">
-                    Your name is required.
-                  </small>
-                        <small class="error" ng-show="signup_form.name.$error.minlength">
-                    Your name is required to be at least 3 charactors
-                  </small>
-                        <small class="error" ng-show="signup_form.name.$error.maxlength">
-                   Your name cannot be longer than 20 characters
-                  </small>
+                    <div class="error" ng-messages="signup_form.name.$error">
+                        <input type="text" name="name" placeholder="Name" name="name" ng-model="signup.name" ng-minlength=3 ng-maxlength=20 required>
+                        <div ng-message="required">
+                            Make sure you enter your name
+                        </div>
+                        <div ng-message="minlength">
+                            Your name must be at least 3 characters
+                        </div>
+                        <div ng-message="maxlength">
+                            Your name cannot be longer than 20 characters
+                        </div>
                     </div>
                 </div>
+            </div>
             </div>
 
             <div class="row">
@@ -79,9 +81,9 @@
                 </div>
             </div>
             <legend>Signup</legend>
-                <div class="row" id="btndiv">
-                    <button type="submit" class="button radius" name="button">Submit</button>
-                </div>
+            <div class="row" id="btndiv">
+                <button type="submit" class="button radius" name="button">Submit</button>
+            </div>
 
         </fieldset>
     </form>

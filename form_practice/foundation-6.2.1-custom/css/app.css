@@ -14,6 +14,8 @@ input.ng-invalid {
 input.ng-valid {
     border: 1px solid lightgreen;
 }
-#btn {
-    margin-left: 190px;
+#btndiv {
+    /*margin-left: 190px;*/
+    padding-left: 15px;
+
 }

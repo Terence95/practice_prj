@@ -1,4 +1,4 @@
-var app = angular.module("myApp", []);
+var app = angular.module("myApp", ['ngMessages']);
 app.directive('ensureUnique', function($http) {
     return {
         require: 'ngModel',
@@ -34,3 +34,25 @@ app.controller('signupController', function($scope) {
         }
     };
 });
+
+app.directive('ngFocus', [function() {
+    var FOCUS_CLASS = "ng-focused";
+    return {
+        restrict: 'A',
+        require: 'ngModel',
+        link: function(scope, element, attrs, ctrl) {
+            ctrl.$focused = false;
+            element.bind('focus', function(evt) {
+                element.addClass(FOCUS_CLASS);
+                scope.$apply(function() {
+                    ctrl.$focused = true;
+                });
+            }).bind('blur', function(evt){
+              element.removeClass(FOCUS_CLASS);
+              scope.$apply(function(){
+                ctrl.$focused = false;
+              });
+            });
+        }
+    };
+}]);
