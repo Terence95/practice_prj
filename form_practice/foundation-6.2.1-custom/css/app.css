@@ -1,24 +1,19 @@
 body {
-  background-color: #fff;
-  border-top: 5px solid #3399cc;
+    background-color: #fff;
+    border-top: 5px solid #3399cc;
 }
-
 html {
-  background: #fff;
+    background: #fff;
 }
-
 .row {
-  border: 0px solid green;
+    border: 0px solid green;
 }
-
 input.ng-invalid {
-  border: 1px solid red;
+    border: 1px solid red;
 }
-
 input.ng-valid {
-  border: 1px solid green;
+    border: 1px solid green;
 }
-
-#btn{
-  margin-left: 100px;
+#btn {
+    margin-left: 100px;
 }
