@@ -10,9 +10,63 @@
     <link rel="stylesheet" href="../foundation-6.2.1-custom/css/foundation.min.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="../foundation-6.2.1-custom/css/app.css" media="screen" title="no title" charset="utf-8">
 </head>
-<body>
-    <my-directive>
 
-    </my-directive>
+<body>
+    <div class="row">
+        <input type="text" ng-model="myUrl">
+        <div my-directive some-attr="{{myUrl}}" my-link-text="click me">
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <h2 ng-init="greeting = 'Hello World'">The greeting is: {{ greeting }}</h2>
+
+        <p>
+            We can access: {{rootProperty}}
+        </p>
+
+        <div ng-controller="ParentController">
+            <p>
+                We can access: {{rootProperty}} and {{parentProperty}}
+            </p>
+
+            <div ng-controller="ChildController">
+                <p>
+                    We can access: {{rootProperty}} and {{parentProperty}} and {{childProperty}}
+                </p>
+                <p>
+                    {{fullSentenceFromChild}}
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <label>someProperty = {{someProperty}}</label>
+        <input type="checkbox" name="name" ng-checked="someProperty" ng-init="someProperty=true" ng-model="someProperty">
+    </div>
+
+
+    <div class="row">
+        <label>someProperty = {{anotherProperty}}</label>
+        <input type="checkbox" ng-checked="anotherProperty" ng-init="anotherProperty=false" ng-model="anotherProperty">
+    </div>
+
+
+    <div class="row">
+        <label>Select two fish:</label>
+        <input type="checkbox" ng-model="isTwoFish"><br>
+        <select>
+          <option>One Fish</option>
+          <option ng-selected="isTwoFish">Two Fish</option>
+        </select>
+    </div>
+
+
+
 </body>
+
 </html>
