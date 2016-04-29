@@ -32,7 +32,7 @@
                 We can access: {{rootProperty}} and {{parentProperty}}
             </p>
 
-            {{someBareValue}}
+            {{someModel.someValue}}
             <button type="button" name="button" ng-click="parentAction()">Communicate to child</button>
             <div ng-controller="ChildController">
                 <p>
@@ -41,7 +41,7 @@
                 <p>
                     {{fullSentenceFromChild}}
                 </p>
-                {{someBareValue}}
+                {{someModel.someValue}}
                 <button ng-click="childAction()" type="button" name="button">Communicate to parent</button>
             </div>
         </div>
@@ -62,34 +62,77 @@
 
     <div class="row">
         <label>Select two fish:</label>
-        <input type="checkbox" ng-model="isTwoFish"><br>
+        <input type="checkbox" ng-model="isTwoFish">
+        <br>
         <select>
-          <option>One Fish</option>
-          <option ng-selected="isTwoFish">Two Fish</option>
+            <option>One Fish</option>
+            <option ng-selected="isTwoFish">Two Fish</option>
         </select>
     </div>
 
 
     <div class="row">
-      <a ng-href="{{myHref}}">I am feeling lucky, when I load</a>
-      <!-- 用户单击之前href不会加载 -->
-      <a ng-href="{{myHref}}">404 not found</a>
+        <a ng-href="{{myHref}}">I am feeling lucky, when I load</a>
+        <!-- 用户单击之前href不会加载 -->
+        <a ng-href="{{myHref}}">404 not found</a>
     </div>
 
 
     <div class="row">
-      <h4>WrongWay</h4>
-      <img class="img" src="{{imgSrc}}" alt="img"/>
+        <h4>WrongWay</h4>
+        <img class="img" src="{{imgSrc}}" alt="img" />
 
 
 
-      <img class="img" ng-src="{{imgSrc}}" alt="img"/>
+        <img class="img" ng-src="{{imgSrc}}" alt="img" />
 
     </div>
 
     <div class="row" ng-controller="SomeController">
-      {{someModel.someProperty}}
-      <button type="button" ng-click="someAction()">Communicate</button>
+        {{someModel.someProperty}}
+        <button type="button" ng-click="someAction()">Communicate</button>
+    </div>
+
+
+    <div class="row">
+        <input type="text" value="" ng-model="person.name" />
+        <div ng-switch on="person.name">
+            <p ng-switch-defalut>
+                And the winner is
+            </p>
+            <h1 ng-switch-when="Ari">{{person.name}}</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div ng-if="2+2===5">
+            won't see this dom node, not even in the source code.
+        </div>
+
+        <div ng-if="2+2===4">
+            Hi, i do exist
+        </div>
+    </div>
+
+    <div class="row">
+        <ul ng-controller="PeopleController">
+            <li ng-repeat="person in people" ng-class="{even: !$even, odd: !$odd}">
+                {{person.name}} lives in {{person.city}}
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+      <div ng-init="greeting='helloworld use {{}}'">
+        <p ng-cloak>
+          {{greeting}}
+        </p>
+      </div>
+
+      <div ng-init="greeting='helloworld'">
+        
+      </div>
+
     </div>
 </body>
 

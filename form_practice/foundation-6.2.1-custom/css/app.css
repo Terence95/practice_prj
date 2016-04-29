@@ -17,10 +17,15 @@ input.ng-valid {
 #btndiv {
     /*margin-left: 190px;*/
     padding-left: 15px;
-
 }
-.img{
-  padding-right: 200px;
-  width: 30%;
-  height: 30%;
+.img {
+    padding-right: 200px;
+    width: 30%;
+    height: 30%;
+}
+.odd {
+    background-color: blue;
+}
+.even {
+    background-color: red;
 }
