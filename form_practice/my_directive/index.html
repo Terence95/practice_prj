@@ -21,7 +21,7 @@
 
 
     <div class="row">
-        <h2 ng-init="greeting = 'Hello World'">The greeting is: {{ greeting }}</h2>
+        <h5 ng-init="greeting = 'Hello World'">The greeting is: {{ greeting }}</h5>
 
         <p>
             We can access: {{rootProperty}}
@@ -32,6 +32,8 @@
                 We can access: {{rootProperty}} and {{parentProperty}}
             </p>
 
+            {{someBareValue}}
+            <button type="button" name="button" ng-click="parentAction()">Communicate to child</button>
             <div ng-controller="ChildController">
                 <p>
                     We can access: {{rootProperty}} and {{parentProperty}} and {{childProperty}}
@@ -39,6 +41,8 @@
                 <p>
                     {{fullSentenceFromChild}}
                 </p>
+                {{someBareValue}}
+                <button ng-click="childAction()" type="button" name="button">Communicate to parent</button>
             </div>
         </div>
     </div>
@@ -66,7 +70,27 @@
     </div>
 
 
+    <div class="row">
+      <a ng-href="{{myHref}}">I am feeling lucky, when I load</a>
+      <!-- 用户单击之前href不会加载 -->
+      <a ng-href="{{myHref}}">404 not found</a>
+    </div>
 
+
+    <div class="row">
+      <h4>WrongWay</h4>
+      <img class="img" src="{{imgSrc}}" alt="img"/>
+
+
+
+      <img class="img" ng-src="{{imgSrc}}" alt="img"/>
+
+    </div>
+
+    <div class="row" ng-controller="SomeController">
+      {{someModel.someProperty}}
+      <button type="button" ng-click="someAction()">Communicate</button>
+    </div>
 </body>
 
 </html>

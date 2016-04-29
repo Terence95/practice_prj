@@ -19,3 +19,8 @@ input.ng-valid {
     padding-left: 15px;
 
 }
+.img{
+  padding-right: 200px;
+  width: 30%;
+  height: 30%;
+}
