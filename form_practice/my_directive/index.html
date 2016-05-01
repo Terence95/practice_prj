@@ -121,19 +121,120 @@
             </li>
         </ul>
     </div>
-
+    <!-- 指令10 ng-bind 和 {{}} -->
     <div class="row">
-      <div ng-init="greeting='helloworld use {{}}'">
-        <p ng-cloak>
-          {{greeting}}
-        </p>
-      </div>
+        <div ng-init="greeting='helloworld use {{}}'">
+            <p ng-cloak>
+                {{greeting}}
+            </p>
+        </div>
 
-      <div ng-init="greeting='helloworld'">
-        
+        <div ng-init="greeting='helloworld'">
+            <p ng-bind="greeting">
+
+            </p>
+        </div>
+    </div>
+
+
+
+    <!-- 11. ng-cloak -->
+    <div class="row">
+        <div ng-init="greeting='helloworld'">
+            <p ng-cloak>
+                {{greeting}}
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- 12. ng-bind-template -->
+    <div class="row">
+        <div ng-bind-template="{{message}}{{_name}}" ng-controller="templateController">
+            {{message}}{{_name}}
+        </div>
+    </div>
+
+
+    <!-- ng-model -->
+    <div class="row" ng-controller="ngModelController">
+        <input type="text" name="name" ng-model="greeting">
+        <p>
+            hi {{greeting || 'ter'}}
+        </p>
+
+        <button type="small button" ng-click="init()" name="button">reset</button>
+    </div>
+
+    <!-- 14. ng-show/ng-hide -->
+    <div class="row">
+        <div ng-show="2+2==5">
+            2+2 isn't 5, dont show
+        </div>
+
+        <div ng-show="2+2==4">
+            2+2 is 4, do show
+        </div>
+
+        <div ng-hide="2+2==5">
+            2+2 isn't 5, dont hide
+        </div>
+
+        <div ng-hide="2+2==4">
+            2+2 is 4 , do hide
+        </div>
+    </div>
+
+
+    <!-- 15. ng-change -->
+    <div class="row" ng-controller="EquationController">
+        <input type="text" ng-model="equation.x" ng-change="change()">
+        <code>{{equation.output}}</code>
+    </div>
+
+
+
+    <!-- 16. ng-from 这里的表单是动态生成的 ng-repeat-->
+    <div class="row">
+        <div class="large-12 columns">
+            <form name="signup_form" ng-controller="FormController" ng-submit="submitForm()" novalidate>
+                <div ng-repeat="field in fields" ng-form="signup_form_input">
+                    <input type="text" name="dynamic_input" ng-required="field.isRequired" ng-model="field.name" placeholder="{{field.placeholder}}" />
+                    <div ng-show="signup_form_input.dynamic_input.$dirty &&
+                signup_form_input.dynamic_input.$invalid">
+                        <span class="error" ng-show="signup_form_input.dynamic_input.$error.required"> The field is required.
+                </span>
+                    </div>
+                </div>
+                <button class="button radius" type="submit" ng-disabled="signup_form.$invalid">
+                    Submit All
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ng-click -->
+    <div class="row">
+      <div ng-controller="CounterController">
+        <button class="button radius" ng-click="count = count + 1" ng-init="count=0" name="button">increment</button>
+        count: {{count}}
+        <button class="button radius" ng-click="decrement()" name="button">decrement</button>
       </div>
 
     </div>
+
+
+    <!-- ng-select  -->
+    <div class="row">
+      <div ng-controller="CityController">
+        <select ng-model="city" ng-options="city.name for city in cities">
+          <option value="">Chose City</option>
+        </select>
+        Best City: {{city.name}}
+      </div>
+    </div>
+
 </body>
 
 </html>

@@ -71,3 +71,65 @@ app.controller('PeopleController', function($scope) {
         city: "Seattle"
     }];
 });
+
+
+app.controller('templateController', function($scope) {
+    $scope.message = "hello";
+    $scope._name = "terence";
+});
+
+
+app.controller('ngModelController', function($scope) {
+    $scope.init = function() {
+        $scope.greeting = "";
+    };
+});
+
+
+app.controller('EquationController', function($scope) {
+    $scope.equation = {};
+    $scope.change = function() {
+        $scope.equation.output = parseInt($scope.equation.x) + 2;
+    };
+});
+
+
+app.controller('FormController', function($scope) {
+    $scope.fields = [{
+        placeholder: 'Username',
+        isRequired: true
+    }, {
+        placeholder: 'Password',
+        isRequired: true
+    }, {
+        placeholder: 'Email (optional)',
+        isRequired: false
+    }];
+
+    $scope.submitForm = function() {
+        alert("it works!");
+    };
+});
+
+
+app.controller('CounterController', function($scope) {
+    $scope.decrement = function() {
+        $scope.count = $scope.count - 1;
+    };
+});
+
+
+app.controller('CityController', function($scope) {
+    $scope.cities = [{
+        name: 'Seattle'
+    }, {
+        name: 'San Francisco'
+    }, {
+        name: 'Chicago'
+    }, {
+        name: 'New York'
+    }, {
+        name: 'Boston'
+    }];
+
+});
