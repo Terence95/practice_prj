@@ -214,7 +214,7 @@
         </div>
     </div>
 
-    <!-- ng-click -->
+    <!--17. ng-click -->
     <div class="row">
       <div ng-controller="CounterController">
         <button class="button radius" ng-click="count = count + 1" ng-init="count=0" name="button">increment</button>
@@ -225,13 +225,35 @@
     </div>
 
 
-    <!-- ng-select  -->
+    <!--18. ng-select  -->
     <div class="row">
       <div ng-controller="CityController">
         <select ng-model="city" ng-options="city.name for city in cities">
           <option value="">Chose City</option>
         </select>
         Best City: {{city.name}}
+      </div>
+    </div>
+
+    <!-- 19. ng-submit-->
+    <div class="row">
+
+    </div>
+
+
+
+    <!-- 20. ng-class -->
+    <div class="row">
+      <div ng-controller="LotteryController">
+        <div ng-class="{red: x > 5}" ng-if="x>5">
+        If the number is bigger than 5  You won!
+        </div>
+        <button class="button radius" ng-click="x=generateNumber()" ng-init="x=0">
+          Draw Number
+        </button>
+        <p>
+          Number is: {{ x }}
+        </p>
       </div>
     </div>
 
