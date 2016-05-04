@@ -29,3 +29,29 @@ appModule.directive('hello2', function() {
 appModule.controller('MyController', function($scope) {
   $scope.things = [1,2,3,4,5,6];
 });
+
+appModule.directive('expander', function() {
+  return {
+      restrict: 'EA',
+      replace: true,
+      transclude: true,
+      scope: {
+        title: '=expanderTitle'
+      },
+      template: '<div>'
+              + '<div class="title" ng-click="toggle()">{{title}}</div>'
+              + '<div class="body" ng-show="showMe" ng-transclude></div>'
+              + '</div>',
+      link : function(scope, element, attrs) {
+        scope.showMe = false;
+        scope.toggle = function toggle(){
+          scope.showMe = !scope.showMe;
+        };
+      }
+  };
+});
+
+appModule.controller('SomeController', function($scope) {
+    $scope.title = 'click show';
+    $scope.text = 'internal content';
+});

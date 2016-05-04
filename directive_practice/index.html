@@ -10,6 +10,7 @@
     <meta name="googlebot" content="index,follow">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.0/angular.js"></script>
     <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
 </head>
 
 <body>
@@ -34,10 +35,21 @@
       <br>
 
     <!-- 实例3 关于compile 和 link -->
+    <!-- 指令的本质是一个替换的过程，要深究angular是如何进行替换的，
+    需要知道compile和link两个阶段  compile阶段进行标签解析和变换
+    link 阶段进行数据绑定等操作-->
     <div ng-controller="MyController">
       <div ng-repeat="thing in things">
         {{thing}}.<hello></hello>
       </div>
+    </div>
+
+
+    <!-- 比方说，你有一些事件需要绑定到某个元素上，那么需要提供一个link函数 -->
+    <div ng-controller="SomeController">
+      <expander class="expander" expander-title="title">
+        {{text}}
+      </expander>
     </div>
 </body>
 

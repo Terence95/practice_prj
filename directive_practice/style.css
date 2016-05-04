@@ -1,4 +1,4 @@
-div{
+div {
     padding: 6px;
 }
 div.container {
@@ -7,6 +7,19 @@ div.container {
 div.my-info {
     border: 1px solid blue;
 }
-div.my-directive{
+div.my-directive {
     border: 1px solid green;
+}
+.expander {
+    border: 1px solid black;
+    width: 250px;
+}
+.expander > .title {
+    background-color: black;
+    color: white;
+    padding: .1em .3em;
+    cursor: pointer;
+}
+.expander>.body {
+    padding: .1em .3em;
 }
