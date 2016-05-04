@@ -1,0 +1,44 @@
+<!doctype html>
+<html ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="googlebot" content="index,follow">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.0/angular.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <!-- 实例1 -->
+    <hello></hello>
+
+    <br>
+    <br>
+    <br>
+    <!-- 实例2 -->
+    <hello1>
+      <br>
+      <span>原始内容，</span>
+      <span>还会在这里。</span>
+    </hello1>
+
+    <hello1></hello1>
+    <!-- 指令的作用是把我们自定义的语义化的标签替换成浏览器能够认识的
+      html标签 transclude 就是用来处理当自定义标签内部出现了子标签的情况-->
+      <br>
+      <br>
+      <br>
+
+    <!-- 实例3 关于compile 和 link -->
+    <div ng-controller="MyController">
+      <div ng-repeat="thing in things">
+        {{thing}}.<hello></hello>
+      </div>
+    </div>
+</body>
+
+</html>
