@@ -51,6 +51,21 @@
         {{text}}
       </expander>
     </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- 综合例子 -->
+    <div ng-controller="controller1">
+        <accordion>
+          <expander2 class="expander" ng-repeat="expander in expanders" expander2-title="title">
+            {{expander.text}}
+          </expander2>
+        </accordion>
+    </div>
 </body>
 
 </html>
