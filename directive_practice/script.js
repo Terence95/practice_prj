@@ -30,29 +30,29 @@ appModule.controller('MyController', function($scope) {
     $scope.things = [1, 2, 3, 4, 5, 6];
 });
 
-appModule.directive('expander', function() {
-    return {
-        restrict: 'EA',
-        replace: true,
-        transclude: true,
-        scope: {
-            title: '=expanderTitle'
-        },
-        template: '<div>' + '<div class="title" ng-click="toggle()">{{title}}</div>' + '<div class="body" ng-show="showMe" ng-transclude></div>' + '</div>',
-        link: function(scope, element, attrs) {
-            scope.showMe = false;
-            scope.toggle = function toggle() {
-                scope.showMe = !scope.showMe;
-            };
-        }
-    };
-});
-
-appModule.controller('SomeController', function($scope) {
-    $scope.title = 'click show';
-    $scope.text = 'internal content';
-});
-
+// appModule.directive('expander', function() {
+//     return {
+//         restrict: 'EA',
+//         replace: true,
+//         transclude: true,
+//         scope: {
+//             title: '=expanderTitle'
+//         },
+//         template: '<div>' + '<div class="title" ng-click="toggle()">{{title}}</div>' + '<div class="body" ng-show="showMe" ng-transclude></div>' + '</div>',
+//         link: function(scope, element, attrs) {
+//             scope.showMe = false;
+//             scope.toggle = function toggle() {
+//                 scope.showMe = !scope.showMe;
+//             };
+//         }
+//     };
+// });
+//
+// appModule.controller('SomeController', function($scope) {
+//     $scope.title = 'click show';
+//     $scope.text = 'internal content';
+// });
+//
 appModule.directive('accordion', function() {
     return {
         restrict: 'EA',
@@ -75,7 +75,7 @@ appModule.directive('accordion', function() {
     };
 });
 
-appModule.directive('expander2', function() {
+appModule.directive('expander', function() {
     return {
         restrict: 'EA',
         replace: true,
@@ -84,14 +84,14 @@ appModule.directive('expander2', function() {
         scope: {
             title: '=expanderTitle'
         },
-        template: '<div>' + '<div class="title" ng-click="toggle()">{{title}}</div>' + '<div class="body" ng-show="showMe" ng-transclude></div>' + '</div>',
+        template: '<div>' + '<div class="title" ng-click="toggle()"> {{title}} </div>' + '<div class="body" ng-show="showMe" ng-transclude></div>' + '</div>',
         link: function(scope, element, attrs, accordionController) {
-          scope.showMe = false;
-          accordionController.addExpander(scope);
-          scope.toggle = function toggle() {
-            scope.showMe = !scope.showMe;
-            accordionController.gotOpend(scope);
-          };
+            scope.showMe = false;
+            accordionController.addExpander(scope);
+            scope.toggle = function toggle() {
+                scope.showMe = !scope.showMe;
+                accordionController.gotOpend(scope);
+            };
 
         }
     };
@@ -99,14 +99,14 @@ appModule.directive('expander2', function() {
 
 
 appModule.controller('controller1', function($scope) {
-  $scope.expanders = [{
-    title: 'click me to expand',
-    text: 'Hi there folks, I am the content that was hidden but is now shown.'
-  },{
-    title: 'click this',
-    text: 'I am even better text than you have seen previously'
-  },{
-    title: 'Test',
-    text: 'test'
-  }];
+    $scope.expanders = [{
+        title: 'click me to expand',
+        text: 'Hi there folks, I am the content that was hidden but is now shown.'
+    }, {
+        title: 'click this',
+        text: 'I am even better text than you have seen previously'
+    }, {
+        title: 'Test',
+        text: 'test'
+    }];
 });

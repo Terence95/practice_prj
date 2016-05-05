@@ -46,11 +46,11 @@
 
 
     <!-- 比方说，你有一些事件需要绑定到某个元素上，那么需要提供一个link函数 -->
-    <div ng-controller="SomeController">
+    <!-- <div ng-controller="SomeController">
       <expander class="expander" expander-title="title">
         {{text}}
       </expander>
-    </div>
+    </div> -->
 
     <br>
     <br>
@@ -61,9 +61,9 @@
     <!-- 综合例子 -->
     <div ng-controller="controller1">
         <accordion>
-          <expander2 class="expander" ng-repeat="expander in expanders" expander2-title="title">
+          <expander class="expander" ng-repeat="expander in expanders" expander-title="title">
             {{expander.text}}
-          </expander2>
+          </expander>
         </accordion>
     </div>
 </body>
