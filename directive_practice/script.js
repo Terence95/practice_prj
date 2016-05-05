@@ -122,7 +122,7 @@ appModule.factory('MathService', function() {
     factory.add = function(a,b) {
        return a + b;
     };
-    return factory;
+    return factory; // 返回了一个包含 add 和 multiply的一个对象
 });
 
 
@@ -137,6 +137,7 @@ appModule.service('CalcService', function(MathService) {
     };
 });
 
+// 将服务注入controller中，使得在作用域中可以调用服务
 appModule.controller('CalcController', function($scope, CalcService) {
     $scope.square = function() {
         $scope.result = CalcService.square($scope.number);
