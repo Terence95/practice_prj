@@ -110,3 +110,39 @@ appModule.controller('controller1', function($scope) {
         text: 'test'
     }];
 });
+
+
+appModule.factory('MathService', function() {
+    var factory = {};
+    factory.multiply = function(a, b) {
+        return a * b;
+    };
+
+
+    factory.add = function(a,b) {
+       return a + b;
+    };
+    return factory;
+});
+
+
+// 将factory注入service中，因此在其中可以调用multiply方法
+appModule.service('CalcService', function(MathService) {
+    this.square = function(a) {
+        return MathService.multiply(a,a);
+    };
+
+    this.add = function(a) {
+       return MathService.add(a,a);
+    };
+});
+
+appModule.controller('CalcController', function($scope, CalcService) {
+    $scope.square = function() {
+        $scope.result = CalcService.square($scope.number);
+    };
+
+    $scope.add = function() {
+        $scope.result1 = CalcService.add($scope.number);
+    };
+});
