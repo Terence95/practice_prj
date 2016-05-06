@@ -1,39 +1,22 @@
 <!doctype html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta name="description" content="">
-   <meta name="keywords" content="">
-   <meta name="author" content="">
-   <meta name="googlebot" content="index,follow">
-    <script type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.0/angular.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="googlebot" content="index,follow">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.20/angular.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.20/angular-route.js"></script>
     <script src="script.js"></script>
-  </head>
-  <body>
-      <div class="" ng-app="MyApp">
-          <div class="container" ng-controller="MyController">
-              <div class="my-info">我的名字是： <span ng-bind="name"></span>
-                  <br/> 我的年龄是：<span ng-bind="age"></span>
-              </div>
-              <!-- 使用属性声明指令 -->
-              <div class="my-directive" my-directive my-name="{{name}}" age="age" change-my-age="changeAge()">
-                  <!-- 这段部分是由自己创建的指令生成的 -->
-              </div>
-          </div>
-      </div>
-  </body>
+</head>
+
+<body>
+    <p>
+        contact
+    </p>
+</body>
+
 </html>
-
-<!-- 将scope的属性设置为false所以，我们创建的指令继承了父作用域的一切属性和方法，这也使得在指令的模板中
-我们可以使用这些属性和方法 -->
-
-
-<!-- 当我们将scope设置为true的时候，我们就新创建了一个作用域，只不过这个作用域是继承
-了我们的父作用域；可以这样理解，我们新创建的作用域是一个新的作用域，只不过在初始化的时候，用了父作用域的属性和
-方法去填充这个新的作用域，和父作用域并不是同一个作用域 -->
-
-
-<!-- 将scope设置为false的时候，我们创建的指令和父作用域（同一个）共享一个model模型
-所以在指令中修改模型数据会反映到父作用域的模型中 -->
