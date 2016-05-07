@@ -1,17 +1,60 @@
 <!doctype html>
-<html>
-  <head>
+<html ng-app="locationApp">
+
+<head>
     <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta name="description" content="">
-   <meta name="keywords" content="">
-   <meta name="author" content="">
-   <meta name="googlebot" content="index,follow">
-    <script type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="googlebot" content="index,follow">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular.js"></script>
     <script src="script.js"></script>
-  </head>
-  <body>
-      
-  </body>
+</head>
+
+<body ng-controller="locationCtrl">
+    <p>
+        完整url路径： <span>{{absurl}}</span>
+    </p>
+
+    <p>
+        url路径(当前url#后面的内容，包括参数和哈希值)：<span>{{url}}</span>
+        <button type="button" ng-click="changeUrl()">改变url</button>
+    </p>
+
+    <p>
+        相对路径(当前url#后面的内容，不包括参数)： <span>{{path}}</span>
+        <button type="button" ng-click="changePath()">改变path</button>
+    </p>
+
+    <p>
+        协议(比如http，https) <span>{{protocol}}</span>
+    </p>
+
+    <p>
+        主机名： <span>{{host}}</span>
+    </p>
+
+    <p>
+        端口号： <span>{{port}}</span>
+    </p>
+
+    <p>
+        哈希值： <span>{{hash}}</span>
+        <button type="button" ng-click="changeHash()">改变hash</button>
+    </p>
+
+
+    <p> search 值序列化 json：
+        <span>{{search}}</span>
+        <button ng-click="changeSearch_1()">改变1</button>
+        <button ng-click="changeSearch_2()">改变2</button>
+        <button ng-click="changeSearch_3()">改变3</button>
+        <button ng-click="changeSearch_4()">改变4</button>
+        <button ng-click="changeSearch_5()">改变5</button>
+        <button ng-click="changeSearch_6()">改变6</button>
+
+    </p>
+</body>
+
 </html>

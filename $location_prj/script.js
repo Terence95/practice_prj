@@ -116,3 +116,4 @@
       console.log('结束改变$location')
     });
 **/
+var app = angular.module('locationApp',[]);
