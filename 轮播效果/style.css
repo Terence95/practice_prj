@@ -28,6 +28,7 @@
     position: absolute;
     /*blue之后要去掉*/
     /*background: blue;*/
+    /*overflow: auto;*/
 }
 #abgne-block .desc-block {
     position: absolute;
