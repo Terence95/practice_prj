@@ -1,0 +1,129 @@
+/*轮播区块的样式*/
+
+#abgne-block {
+    width: 552px;
+    height: 300px;
+    padding: 6px 10px;
+    position: relative;
+    border: 1px solid #ccc;
+}
+
+/*区块中ul 和 li 的样式*/
+
+#abgne-block ul, #abgne-block li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    /*将list前的圆点去掉*/
+}
+#abgne-block img {
+    border: none;
+}
+
+/* id=photo 区块的 样式*/
+
+#abgne-block .photo {
+    width: 450px;
+    height: 300px;
+    position: absolute;
+    /*blue之后要去掉*/
+    /*background: blue;*/
+}
+#abgne-block .desc-block {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 450px;
+    height: 32px;
+}
+#abgne-block .desc-bg, #abgne-block .desc-title {
+    position: absolute;
+    width: 430px;
+    /*图片宽度 450px - padding(10px) * 2 = 430px*/
+    background: #000;
+    top: 0;
+    height: 24px;
+    padding: 4px 10px;
+}
+#abgne-block .desc-title {
+    color: #fff;
+    background: none;
+    line-height: 24px;
+}
+
+/*播放暂停按钮*/
+
+#abgne-block #playPause-btn {
+    position: absolute;
+    display: block;
+    right: 5px;
+    bottom: 5px;
+    width: 21px;
+    height: 21px;
+    width: 21px;
+    height: 21px;
+    text-indent: -999px;
+}
+#abgne-block .playPause-btn-play {
+    background: url(http://demo.abgne.tw/jquery/0064/images/sprite.png) no-repeat -21px 0px;
+}
+#abgne-block .playPause-btn-pause {
+    background: url(http://demo.abgne.tw/jquery/0064/images/sprite.png) no-repeat 0px 0px;
+}
+#abgne-block .thumbs {
+    width: 94px;
+    height: 288px;
+    padding-top: 12px;
+    right: 10px;
+    position: absolute;
+}
+#abgne-block .carousel {
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+}
+#abgne-block .carousel .nav-bar {
+    /*被点击时，缩略图左边的线*/
+    float: left;
+    width: 2px;
+    height: 63px;
+    margin-right: 2px;
+}
+#abgne-block .carousel img {
+    float: left;
+    width: 90px;
+    height: 63px;
+}
+#abgne-block .carousel ul {
+    position: absolute;
+}
+#abgne-block .carousel li {
+    width: 94px;
+    height: 72px;
+}
+#abgne-block .carousel .current .nav-bar {
+    background: #007acc;
+}
+
+#abgne-block .thumbs .prev, #abgne-block .thumbs .next {
+    /*缩略图控制上下按钮*/
+    position: absolute;
+    left: 43px;
+    width: 12px;
+    height: 0px;
+    padding-top: 6px;
+    overflow: hidden;
+    display: block;
+    cursor: pointer; /*自定义光标*/
+    background: url(http://demo.abgne.tw/jquery/0064/images/sprite.png) no-repeat 0 0;
+}
+
+#abgne-block .thumbs .prev {
+  top: 0px;
+  background-position: 0 -21px;
+}
+
+#abgne-block .thumbs .next {
+  bottom: -2px;
+  background-position: 0 -27px;
+}
