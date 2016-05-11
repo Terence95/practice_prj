@@ -5,4 +5,4 @@
 
 - Parent_Child_scope (关于angularjs作用域的练习)
 
-- 
+- a
