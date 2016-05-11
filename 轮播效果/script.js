@@ -52,4 +52,27 @@ $(function() {
         });
     }
 
+
+    // 缩图li被点击
+    $li.click(function() {
+        var $this = $(this),
+            $a = $this.find('a'),
+            $img = $this.find('img');
+
+
+        clearTimeout(timer);
+        _index = $this.index();
+
+        // 分別改變左邊顯示區塊的超連結, 圖片, alt 及描述內容
+        $photoA.attr('href', $a.attr('href'));
+        $photoImg.attr({
+            src: $img.attr('src'),
+            alt: $img.attr('alt')
+        });
+
+        $photoDesc.html($img.attr('alt'));
+        $this.addClass('current').siblings('.current').removeClass('current');
+
+    }).eq(_index).click();
+
 });

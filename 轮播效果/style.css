@@ -18,17 +18,20 @@
 }
 #abgne-block img {
     border: none;
+    width: 450px;
+    height: 300px;
 }
 
 /* id=photo 区块的 样式*/
 
-#abgne-block .photo {
+#abgne-block .photo{
     width: 450px;
     height: 300px;
     position: absolute;
     /*blue之后要去掉*/
     /*background: blue;*/
-    /*overflow: auto;*/
+    /*overflow: hidden;*/
+
 }
 #abgne-block .desc-block {
     position: absolute;
