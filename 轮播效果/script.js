@@ -75,4 +75,22 @@ $(function() {
 
     }).eq(_index).click();
 
+
+    // 当播放按钮被点击时
+    $playPauseBtn.click(function() {
+        // 这里要进行播放暂停图标的样式切换
+
+        // toggleClass()对设置或者移除被选元素的一个或者多个类进行切换
+        // 如果不存在则添加类，如果设置，则删除之
+
+        var $this = $(this).toggleClass('playPause-btn-pause playPause-btn-play'),
+        _hasPlay = $this.hasClass('playPause-btn-play'),
+        _txt = _hasPlay ? '播放' : '暂停';
+
+
+        // 如果目前的播放按钮不是 “播放状态” 就启动计时器； 否则停止计时器
+
+
+    });
+
 });
