@@ -12,6 +12,11 @@ $(function() {
         $ul = $thumbs.find('ul'),
         $li = $ul.find('li'),
         _liHeight = $li.height(),
+        // Math.ceil() 函数执行向上取整
+        // Math.floot() 函数执行向下取整
+        // Math.round() 执行标准舍入
+        // 下面这句话是讲 _carouselHeight / _liHeight 的值进行向上取整
+        // 也就是 280 / 72 ~ 4 所以 _set 是 4
         _set = Math.ceil(_carouselHeight / _liHeight),
         _count = Math.ceil($li.length / _set),
         _height = _set * _liHeight * -1,
@@ -19,6 +24,9 @@ $(function() {
         _animateSpeed = 400, //轮播速度和动画速度
         _index = 0,
         _countIndex = 0;
+    console.log('_liHeight=' + _liHeight);
+    console.log('_carouselHeight=' + _carouselHeight);
+    console.log('_set=' + _set);
     // 在缩图前面插入一个 .nav-bar 当点击到该缩图时的效果
     $('<span class="nav-bar"></span>').insertBefore($li.find('img'));
     // 让描述区块背景有透明度
@@ -36,7 +44,7 @@ $(function() {
         $controls.click(function(e) {
             // 计算要显示第几组
             _countIndex = Math.floor((e.target.className == 'prev' ? _countIndex - 1 + _count : _countIndex + 1) % _count);
-
+            // console.log(_countIndex);
             // 进行动画
             // stop停止正在进行的动画
             $ul.stop().animate({
@@ -73,6 +81,11 @@ $(function() {
         $photoDesc.html($img.attr('alt'));
         $this.addClass('current').siblings('.current').removeClass('current');
 
+        // 如果目前的播放按钮不是播放样式时就启动计时器
+        if (!$playPauseBtn.hasClass('playPause-btn-play')) {
+          timer = setTimeout(auto, speed + _animateSpeed);
+        }
+
     }).eq(_index).click();
 
 
@@ -84,13 +97,40 @@ $(function() {
         // 如果不存在则添加类，如果设置，则删除之
 
         var $this = $(this).toggleClass('playPause-btn-pause playPause-btn-play'),
-        _hasPlay = $this.hasClass('playPause-btn-play'),
-        _txt = _hasPlay ? '播放' : '暂停';
+            _hasPlay = $this.hasClass('playPause-btn-play'),
+            _txt = _hasPlay ? '播放' : '暂停';
 
 
         // 如果目前的播放按钮不是 “播放状态” 就启动计时器； 否则停止计时器
+        if (_hasPlay) {
+            // clear timeout 方法可以取消
+            clearTimeout(timer);
+        } else {
+            // setTimeout(code, millisec) 用于在指定的毫秒数后调用函数或计算表达式
+            timer = setTimeout(auto, speed);
+        }
+        $this.attr('title', _txt).text(_txt);
 
-
+        return false;
     });
+
+
+    // 自动轮播使用
+    function auto() {
+        _index = (_index + 1) % $li.length;
+        var $tmp = $li.eq(_index).click();
+
+        var _indexCount = Math.floor(_index / _set);
+        // 判斷是否要切換縮圖的顯示組數
+        if ($controls !== null && (_index == (_countIndex + 1) * _set || _index === 0) && _countIndex != _indexCount) {
+            $next.click();
+            $tmp.animate({
+                opacity: 1
+            }, _animateSpeed, function() {
+                $tmp.addClass('current').siblings('.current').removeClass('current');
+            });
+        }
+    }
+
 
 });
