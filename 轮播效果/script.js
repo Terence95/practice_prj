@@ -24,9 +24,11 @@ $(function() {
         _animateSpeed = 400, //轮播速度和动画速度
         _index = 0,
         _countIndex = 0;
-    console.log('_liHeight=' + _liHeight);
-    console.log('_carouselHeight=' + _carouselHeight);
-    console.log('_set=' + _set);
+    console.log('_liHeight=' + _liHeight); //72
+    console.log('_carouselHeight=' + _carouselHeight);//280
+    console.log('_set=' + _set); //4 计算一组能显示几张图 在这里 在 carousel 280 的高度下，一个li的高度是72 所以在 carousel中可以显示4张图
+    console.log('_count='+_count); // 2 表示 4张图片为一组，一共有两组图片
+    console.log('_height='+_height); // -288px 移动4个li的像素
     // 在缩图前面插入一个 .nav-bar 当点击到该缩图时的效果
     $('<span class="nav-bar"></span>').insertBefore($li.find('img'));
     // 让描述区块背景有透明度
@@ -37,17 +39,22 @@ $(function() {
     if (_count > 1) {
         $controls = $thumbs.append('<a href="#prev" class="prev"></a><a href="#next" class="next"></a>').find('.prev, .next');
         // eq选择器选择带有指定index 的元素
+        // 如果大于 1组图片了，那么向上的按钮就被隐藏
         var $prev = $controls.eq(0).hide(),
             $next = $controls.eq(1);
 
         // 当点击上下按钮时
         $controls.click(function(e) {
             // 计算要显示第几组
+            // e.target.className看点击事件发生的元素的 className是不是 prev 如果是 _countIndex = _countIndex - 1 + _count = 0 即显示第一组的四张
+            // 否则  _countIndex + 1 % 2 = 2 % 2 =
             _countIndex = Math.floor((e.target.className == 'prev' ? _countIndex - 1 + _count : _countIndex + 1) % _count);
             // console.log(_countIndex);
             // 进行动画
             // stop停止正在进行的动画
             $ul.stop().animate({
+                // 求移动多少像素
+                // _countIndex * _height(-288px);
                 top: _countIndex * _height
             }, _animateSpeed);
 
@@ -125,7 +132,7 @@ $(function() {
         if ($controls !== null && (_index == (_countIndex + 1) * _set || _index === 0) && _countIndex != _indexCount) {
             $next.click();
             $tmp.animate({
-                opacity: 1
+                opacity: '1'
             }, _animateSpeed, function() {
                 $tmp.addClass('current').siblings('.current').removeClass('current');
             });
