@@ -1,27 +1,38 @@
 <!doctype html>
 <html ng-app="myApp">
-  <head>
+
+<head>
     <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta name="description" content="">
-   <meta name="keywords" content="">
-   <meta name="author" content="">
-   <meta name="googlebot" content="index,follow">
-    <script type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="googlebot" content="index,follow">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular.js"></script>
     <script src="script.js"></script>
     <link rel="stylesheet" href="bootstrap.min.css" media="screen" title="no title" charset="utf-8">
-  </head>
-  <body ng-controller="defaultCtrl">
+</head>
+
+<body ng-controller="defaultCtrl">
     <div class="well">
-      <div class="btn-group" tri-button counter="data.totalClicks" source="data.cities">
-        <!-- <div div class="btn-group" tri-button
+        <div class="btn-group" tri-button counter="data.totalClicks" source="data.cities">
+            <!-- <div div class="btn-group" tri-button
              counter="data.totalClicks" source="data.cities"> -->
-        <button class="btn btn-default" ng-repeat="city in data.cities">
-          {{city}}
-        </button>
-      </div>
-      <h5>Total clicks: {{data.totalClicks}}</h5>
+            <button class="btn btn-default" ng-repeat="city in data.cities">
+                {{city}}
+            </button>
+        </div>
+        <h5>Total clicks: {{data.totalClicks}}</h5>
+        <img src="" alt="" />
     </div>
-  </body>
+
+    <div ng-controller="LoadDataCtrl">
+        <ul>
+            <li ng-repeat="user in users">
+                {{user.name}}
+            </li>
+        </ul>
+    </div>
+</body>
+
 </html>

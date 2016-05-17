@@ -20,27 +20,43 @@
 var app = angular.module('myApp', []);
 app.controller('defaultCtrl', function($scope) {
     $scope.data = {
-      cities: ['London', 'New York', 'Paris'],
-      totalClicks: 0
+        cities: ['London', 'New York', 'Paris'],
+        totalClicks: 0
     };
 
     $scope.$watch('data.totalClicks', function(newVal) {
-      console.log("Total click count: " + newVal);
+        console.log("Total click count: " + newVal);
     });
 });
 
 app.directive('triButton', function() {
     return {
-      scope: {counter: "=counter"},
-      link: function(scope,element,attrs) {
-        element.on("click", function(event) {
-          // 输出那一个城市被点击
-          // event.target应该是得到了被点击的那个按钮元素
-          console.log("Button click: " + event.target.innerText);
-          scope.$apply(function(){
-            scope.counter++;
-          });
-        });
-      }
+        scope: {
+            counter: "=counter"
+        },
+        link: function(scope, element, attrs) {
+            element.on("click", function(event) {
+                // 输出那一个城市被点击
+                // event.target应该是得到了被点击的那个按钮元素
+                console.log("Button click: " + event.target.innerText);
+                scope.$apply(function() {
+                    scope.counter++;
+                });
+            });
+        }
     };
 });
+
+
+app.controller('LoadDataCtrl', ['$scope', '$http', function($scope, $http) {
+    $http({
+        method: 'GET',
+        url: 'package.json'
+    }).success(function(data, status, headers, config) {
+        console.log("success...");
+        console.log("data");
+        $scope.users = data;
+    }).error(function(data, status, headers, config) {
+        console.log("error");
+    });
+}]);
