@@ -33,6 +33,14 @@
             </li>
         </ul>
     </div>
+
+    <div ng-controller="ServiceController">
+      <label>用户名</label>
+      <input type="text" ng-model="username" placeholder="please input">
+      <pre ng-show="username">
+        {{users}}
+      </pre>
+    </div>
 </body>
 
 </html>
