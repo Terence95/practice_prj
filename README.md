@@ -20,5 +20,7 @@
 - router_example (about route)
 
 - 轮播效果（尝试用jquery实现轮播效果）
+
+- practice_service (服务练习) 
  
  
