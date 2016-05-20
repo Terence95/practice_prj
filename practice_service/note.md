@@ -18,3 +18,14 @@
 - 使用 Module 的 service 方法
 
 例子在 script.js文件里
+
+Service 的特性
+
+- Service 都是单例的
+- Service 由$injector负责实例化
+- Service 在整个应用的生命周期中存在，可以用来共享数据
+- 在需要使用的地方利用依赖注入机制注入Service
+- 自定义的Service需要写在内置Service后面
+- 内置Service的命名以$符号开头，自定义Service应该避免
+
+
