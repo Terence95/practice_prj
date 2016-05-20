@@ -63,12 +63,13 @@ app.controller('LoadDataCtrl', ['$scope', '$http', function($scope, $http) {
 
 
 // 创建一个自己的服务
+// 显示查询出来的结果的
 app.factory('userListService', ['$http',
     function($http) {
         var doRequest = function(username, path) {
             return $http({
                 method: 'GET',
-                url: 'package.json'
+                url: 'users.json'
             });
         };
         return {
@@ -78,8 +79,7 @@ app.factory('userListService', ['$http',
         };
     }
 ]);
-
-myServiceApp.controller('ServiceController', ['$scope', '$timeout', 'userListService',
+app.controller('ServiceController', ['$scope', '$timeout', 'userListService',
     function($scope, $timeout, userListService) {
         var timeout;
         $scope.$watch('username', function(newUsername) {
@@ -97,3 +97,10 @@ myServiceApp.controller('ServiceController', ['$scope', '$timeout', 'userListSer
         });
     }
 ]);
+
+// 自定义filter
+app.filter('filter1', function() {
+    return function(item){
+        return item + " O(∩_∩)O哈哈哈~";
+    };
+});
