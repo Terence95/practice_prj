@@ -1,4 +1,4 @@
-##服务
+##Angular note
 一、<br>
 ####1、什么是服务？<br>
 服务是一个单例对象或者函数，对外提供特定功能
@@ -55,6 +55,15 @@
 - $parse
 - $http: 封装了 Ajax
 
+
+#### 简单项目的开发流程
+- 界面原型设计
+- 切分功能模块
+- 使用 Angular-ui 和 bootstrap 编写 UI （UIRouter、ngGrid、表单检验）
+- 编写 Controller
+- 编写 Service
+- 编写 Filter
+- 单元测试和集成测试
 
 
 
