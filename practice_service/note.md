@@ -100,7 +100,14 @@
 
 
 - template
-- s
+- replace 
+- transclue
+
+
+- 指令的三个阶段： 加载-》编译 -》链接
+	- 加载：加载angular.js 找到ng-app 指令，确定应用边界
+	- 编译：遍历 dom，找到所有指令，根据指令代码中template，replace，transclue转换dom结构，如果存在compile函数则调用
+	- 链接阶段：对于每条指令的link，在angular中在 link里面进行dom的操作，他可以给dom元素绑定事件，可以绑定作用域、绑定事件监听器
 
 
 
