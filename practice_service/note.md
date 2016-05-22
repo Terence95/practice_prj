@@ -66,7 +66,10 @@
 - 单元测试和集成测试
 
 
-
+#### 双向数据绑定
+- ng-bind 解决 出现 {{}} 的问题
+- index.html 加载 Angular 库，在index中用ng-bind
+- 
 
 
 
