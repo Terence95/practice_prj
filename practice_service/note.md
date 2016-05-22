@@ -69,7 +69,41 @@
 #### 双向数据绑定
 - ng-bind 解决 出现 {{}} 的问题
 - index.html 加载 Angular 库，在index中用ng-bind
-- 
+
+
+
+#### AngularJS 四大核心特性
+- mvc
+- 模块化和依赖注入
+- 双向数据绑定
+- 指令
+
+
+#### 指令
+需要了解
+
+- comile与link(操作元素、添加css样式、绑定事件) 
+- 指令与控制器之间的交互
+- 指令之间的交互
+- scope的类型与独立scope
+- 现实项目中，指令的使用会非常之多
+- 第三方指令库 angular-ui
+
+######指令的配置项
+- restrict:(AEMC) 四种
+	- <hello></hello> Element
+	- <div hello></div> Attribute
+	- <div class="hello"> Class
+	- \<!-- directive:hello -->
+
+这四种分别对应 AEMC 四种指令的属性，A（默认） C 和 M 不是经常使用
+
+
+- template
+- s
+
+
+
 
 
 

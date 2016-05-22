@@ -75,6 +75,8 @@ appModule.directive('accordion', function() {
     };
 });
 
+
+
 appModule.directive('expander', function() {
     return {
         restrict: 'EA',
