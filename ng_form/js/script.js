@@ -31,13 +31,20 @@ userInfoModule.controller('UserInfoCtrl', ['$scope', function($scope) {
 
 userInfoModule.controller('cssCtrl', ['$scope',
     function($scope) {
-        $scope.color = "red";
+        // $scope.color = "red";
+        $scope.isred = false;
+        $scope.isGreen = false;
+        $scope.messageText = "Hi";
         $scope.setGreen = function() {
-            $scope.color = "green";
+            $scope.messageText = "pass";
+            $scope.isGreen = true;
+            $scope.isRed = false;
         };
 
         $scope.setRed = function() {
-            $scope.color = "red";
+          $scope.messageText = "wrong";
+          $scope.isGreen = false;
+          $scope.isRed = true;
         };
     }
 ]);
