@@ -163,6 +163,14 @@ appModule.directive("superman", function() {
 
 
 
+###AngularJS 的form指令
+- HTML原生的form表单是不能嵌套的，而AngularJS封装之后的form可以嵌套
+- Angular为form扩展了自动校验功能，防止重复提交等功能
+- Angular对input元素的type进行了扩展，一共提供了以下10种类型
+	- text、number、url、email、radio、checkbox、hidden、button、submit、reset
+- Angular为表单内置了4种css样式
+	- ng-valid、ng-invalid、ng-pristine、ng-dirty
+- 内置校验器：require、minlength、maxlength
     
 
 		

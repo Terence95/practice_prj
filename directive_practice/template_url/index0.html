@@ -99,6 +99,22 @@
         </div>
     </div>
 
+
+    <br>
+    <br>
+    <br>
+    <div class="">
+        <p>
+            关于angular form的例子
+        </p>
+        <form name="myForm" ng-submit="save()" ng-controller="TestFormModule">
+            <!-- required属性，表示需要angular自动帮我们校验 -->
+            <input name="userName" type="text" ng-model="user.userName" required>
+            <input name="password" type="text" ng-model="user.password" required>
+            <input type="submit" ng-disabled="myForm.$invalid">
+        </form>
+    </div>
+
 </body>
 
 </html>

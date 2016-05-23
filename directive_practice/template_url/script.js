@@ -135,3 +135,14 @@ appModule.directive("greeting", function () {
           '<button class="btn btn-default" ng-click="greet({name:userName})">Greet</button><br>'
     };
 });
+
+appModule.controller('TestFormModule', function ($scope) {
+    // 这个user是一个对象 
+    $scope.user = {
+        userName: 'Ter',
+        password:''
+    };
+    $scope.save = function () {
+        alert("save success");
+    };
+});
