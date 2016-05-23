@@ -57,9 +57,9 @@ app.directive('ngFocus', [function() {
     };
 }]);
 
-app.directive('myDirective', function() {
-  return {
-    restrict: 'E',
-    templete: '<a href="https://www.baidu.com/">click me to go to baidu</a>'
-  };
+app.directive("myDirective", function() {
+    return {
+        restrict: 'AE',
+        template:'<div><a href="https://www.baidu.com/">click me to go to baidu</a></div>'
+    };
 });

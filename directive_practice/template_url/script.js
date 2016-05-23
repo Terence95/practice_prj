@@ -137,12 +137,19 @@ appModule.directive("greeting", function () {
 });
 
 appModule.controller('TestFormModule', function ($scope) {
-    // 这个user是一个对象 
+    // 这个user是一个对象
     $scope.user = {
         userName: 'Ter',
         password:''
     };
     $scope.save = function () {
         alert("save success");
+    };
+});
+
+appModule.directive("myDirective", function() {
+    return {
+        restrict: 'AE',
+        template:'<div><a href="https://www.baidu.com/">click me to go to baidu</a></div>'
     };
 });
