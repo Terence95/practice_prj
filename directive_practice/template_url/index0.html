@@ -10,12 +10,46 @@
     <meta name="googlebot" content="index,follow">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular.js"></script>
     <script src="script.js"></script>
-    
+
 </head>
 
 <body>
+    <!-- 一个指令复用的例子 -->
+    <div ng-controller="loadCtrl">
+        <loader howToload="loadData()">滑动加载</loader>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div ng-controller="loadCtrl2">
+        <loader howToload="loadData2()">滑动加载</loader>
+    </div>
 
-    <div form></div>
+    <br>
+    <br>
+    <br>
+
+    <div class="row">
+        <div class="col-md-3">
+            <superman strength>
+                superman --- strength
+            </superman>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <superman strength speed>
+                superman --- strength, speed
+            </superman>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <superman strength speed Light>
+                superman --- strength, speed, Light
+            </superman>
+        </div>
+    </div>
 </body>
 
 </html>

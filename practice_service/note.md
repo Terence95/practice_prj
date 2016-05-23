@@ -108,6 +108,56 @@
 	- 加载：加载angular.js 找到ng-app 指令，确定应用边界
 	- 编译：遍历 dom，找到所有指令，根据指令代码中template，replace，transclue转换dom结构，如果存在compile函数则调用
 	- 链接阶段：对于每条指令的link，在angular中在 link里面进行dom的操作，他可以给dom元素绑定事件，可以绑定作用域、绑定事件监听器
+		- link函数一共有四个参数：scope，element，attr，父控制器
+
+
+
+
+
+
+
+`看下面一段代码`
+	
+```
+appModule.directive("superman", function() {
+    return {
+        scope: {},
+        restrict: 'AE',
+        controller: function($scope) {
+            $scope.abilities = [];
+            this.addStrength = function() {
+                $scope.abilities.push("strength");
+            };
+            this.addSpeed = function() {
+                $scope.abilities.push("speed");
+            };
+            this.addLight = function() {
+                $scope.abilities.push("Light");
+            };
+        },
+        link: function(scope, element, attrs) {
+            element.addClass('btn btn-primary');
+            element.bind("mouseenter", function() {
+                console.log(scope.abilities);
+            });
+        }
+    };
+});
+```
+`scope` 配置成了一个空的对象，创建独立作用域 <br>
+`controller` 和mvc里的controller不同，这个是给我们的指令暴露出一组public方法给外部调用的<br>
+`link` dom操作 <br>
+
+####疑问：什么时候该把逻辑写在controller内，什么时候该把逻辑写在link里面呢？
+- controller： 暴露方法给外部调用
+- link：处理指令内部逻辑的
+
+
+
+    
+
+		
+
 
 
 
