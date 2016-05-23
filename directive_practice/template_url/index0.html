@@ -59,12 +59,43 @@
 
     <div class="">
         <p>
-            @ 绑定策略
+            @ 绑定策略: 把当前属性值，作为字符串传递，传递的是字符串
         </p>
         <div ng-controller="myCtrl1">
-            <drink flavor="{{ctrlFlavor}}">
+            <drink1 flavor="{{ctrlFlavor1}}">
 
-            </drink>
+            </drink1>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <div class="">
+        <p>
+            = 绑定策略: 与父scope中的属性进行双向绑定
+        </p>
+        <div ng-controller="myCtrl2">
+            Ctrl:
+            <br>
+            <input type="text" ng-model="ctrlFlavor2">
+            <br> Directive:
+            <br>
+            <drink2 flavor="ctrlFlavor2"></drink2>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <div class="">
+        <p>
+            '&' 绑定策略: 传递一个来自父scope的函数，稍后调用
+        </p>
+        <div ng-controller="myCtrl3">
+            <greeting greet="sayHello(name)"></greeting>
+            <greeting greet="sayHello(name)"></greeting>
+            <greeting greet="sayHello(name)"></greeting>
         </div>
     </div>
 
