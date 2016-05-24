@@ -110,7 +110,7 @@
         <form name="myForm" ng-submit="save()" ng-controller="TestFormModule">
             <!-- required属性，表示需要angular自动帮我们校验 -->
             <input name="userName" type="text" ng-model="user.userName" required>
-            <input name="password" type="text" ng-model="user.password" required>
+            <input name="password" type="password" ng-model="user.password" required>
             <input type="submit" ng-disabled="myForm.$invalid">
         </form>
     </div>
@@ -119,6 +119,23 @@
     <br>
     <div class="">
         <myDirective my-Directive></myDirective>
+    </div>
+
+
+    <!-- 实例解析expander -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="">
+        <p>
+            expander的例子
+        </p>
+        <div ng-controller="expanderCtrl">
+            <expander class="expander" expander-title="title">
+                {{text}}
+            </expander>
+        </div>
     </div>
 
 </body>
