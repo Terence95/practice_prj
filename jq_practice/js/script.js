@@ -51,4 +51,12 @@ $(document).ready(function() {
         $(".part4").slideToggle("slow");
     });
 
+
+    $(".button2").click(function () {
+        var div = $(".part5 .div1");
+        div.animate({height:'300px', opacity:'0.4'}, "slow");
+        div.animate({width:'300px', opacity:'0.8'}, "slow");
+        div.animate({height:'100px', opacity:'0.4'}, "slow");
+        div.animate({width:'100px', opacity:'0.8'}, "slow");
+    });
 });
