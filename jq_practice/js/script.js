@@ -43,21 +43,33 @@ $(document).ready(function() {
         $("#div3").fadeOut(3000);
     });
 
-    $(".ex .hide").click(function () {
+    $(".ex .hide").click(function() {
         $(this).parents(".ex").hide("slow");
     });
 
-    $(".flip").click(function () {
+    $(".flip").click(function() {
         $(".part4").slideToggle("slow");
     });
 
 
-    $(".button2").click(function () {
+    $(".button2").click(function() {
         var div = $(".part5 .div1");
-        div.animate({height:'300px', opacity:'0.4'}, "slow");
-        div.animate({width:'300px', opacity:'0.8'}, "slow");
-        div.animate({height:'100px', opacity:'0.4'}, "slow");
-        div.animate({width:'100px', opacity:'0.8'}, "slow");
+        div.animate({
+            height: '300px',
+            opacity: '0.4'
+        }, "slow");
+        div.animate({
+            width: '300px',
+            opacity: '0.8'
+        }, "slow");
+        div.animate({
+            height: '100px',
+            opacity: '0.4'
+        }, "slow");
+        div.animate({
+            width: '100px',
+            opacity: '0.8'
+        }, "slow");
     });
 
     // first选择器
@@ -84,6 +96,47 @@ $(document).ready(function() {
 
     // 空选择器 不包含子元素或文本的元素 <p></p> 这东西还不能有回车键
     $("p[name='msg']:empty").html("hello world");
+
+
+    // 显示选择器
+    // visible查找显示的控件 hidden 查找隐藏的控件
+
+
+    // 属性选择器，比较万能的，[属性=“属性值”]
+
+    // :checked 查找的是被选中的控件
+    console.log($("input[name='sex']:checked").val());
+
+    // jq对象转js对象
+    var jsobj = $("input[name='sex']:checked")[0];
+
+
+    // 如果是下拉列表呢，就使用 :selected 选择器
+    console.log($("#city option:selected").val());
+
+
+    // jq对象和js对象相互转换
+    // 1.jq转js
+    // var jsobj_2 = $("input[name='sex']:checked")[0];
+    // jq想获得属性的方法，attr方法
+    // jsobj_2.attr("name");
+
+    // js对象转jq对象
+    // $(js对象) 这样将js对象括起来就可以了
+
+    var role = $("p[name='role']");
+    for (var i = 0; i < role.length; i++) {
+        console.log($(role[i]).html());
+    }
+
+    // jq的方法
+    // 事件函数
+    // 1. 就绪函数 - $(document).ready(function)
+    // 2. 单击函数 - $(selector).click(function)
+    // 3. 双击函数 - $(selector).dbclick(function)
+    // 4. 焦点函数 - $(selector).focus(function)
+    // 5. 失去焦点函数 - $(selector).blur(function)
+    // 6. 内容改变事件 - $(selector).change(function)
 
 
 
