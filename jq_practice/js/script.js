@@ -137,6 +137,7 @@ $(document).ready(function() {
     // 4. 焦点函数 - $(selector).focus(function)
     // 5. 失去焦点函数 - $(selector).blur(function)
     // 6. 内容改变事件 - $(selector).change(function)
+    // 
 
 
 

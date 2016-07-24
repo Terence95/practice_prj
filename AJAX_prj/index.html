@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- saved from url=(0025)https://www.gotokeep.com/ -->
+<html lang="zh-Hans">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="cleartype" content="on">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="">
+    <title>Async Test Demo</title>
+    <script type="text/javascript" src="Ajax.js"></script>
+    <script type="text/javascript">
+
+    window.onload = function () {
+      obtn = document.getElementById("btn1");
+      obtn.onclick = function (){
+        ajax("http://localhost:8000/xampp/prj/test.txt", function (str) {
+            alert(str);
+        }, function () {
+            alert('failed');
+        });
+      }
+    }
+    </script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <input id="btn1" type="button" name="name" value="获取文件内容">
+
+</body>
+
+</html>
